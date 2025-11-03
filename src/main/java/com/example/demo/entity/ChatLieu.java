@@ -1,13 +1,11 @@
+// File: com/example/demo/entity/ChatLieu.java
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ChatLieu")
-@Getter
-@Setter
 public class ChatLieu {
 
     @Id
@@ -15,6 +13,21 @@ public class ChatLieu {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "TenChatLieu", nullable = false, length = 255)
+    @Column(name = "MaChatLieu", nullable = false)
+    private String maChatLieu;
+
+    @Column(name = "TenChatLieu", nullable = false)
     private String tenChatLieu;
+
+    // ... các thuộc tính khác (TrangThai, NguoiTao, NgayTao, ...)
+
+    // Getters và Setters
+    public Long getId() {
+        return id;
+    }
+
+    public String getTenChatLieu() {
+        return tenChatLieu;
+    }
+    // ...
 }
