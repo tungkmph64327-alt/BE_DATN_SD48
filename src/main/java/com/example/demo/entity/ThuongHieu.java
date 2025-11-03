@@ -1,13 +1,10 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ThuongHieu")
-@Getter
-@Setter
 public class ThuongHieu {
 
     @Id
@@ -15,8 +12,22 @@ public class ThuongHieu {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "TenThuongHieu", nullable = false, length = 255)
+    @Column(name = "TenThuongHieu", nullable = false)
     private String tenThuongHieu;
 
-    // Không cần khai báo các trường khác nếu chỉ dùng để hiển thị tên
+    @Column(name = "MoTa")
+    private String moTa;
+
+    @Column(name = "NgayTao", nullable = false)
+    private LocalDateTime ngayTao;
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTenThuongHieu() {
+        return tenThuongHieu;
+    }
 }
