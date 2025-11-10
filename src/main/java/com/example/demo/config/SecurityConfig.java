@@ -36,6 +36,8 @@ public class SecurityConfig {
 
                         // [PERMIT ALL] Cho phép tất cả các API Options và Search
                         .requestMatchers(HttpMethod.GET,
+                                "/api/v1/kichco/options",
+                                "/api/v1/mausac/options",
                                 "/api/v1/sanpham/search*",
                                 "/api/v1/sanpham/options",
                                 "/api/v1/thuonghieu/options",
@@ -44,7 +46,15 @@ public class SecurityConfig {
                                 "/api/v1/thuonghieu/search*",
                                 "/api/v1/chatlieu/search*",
                                 "/api/v1/loaisanpham/search*"
+
                         ).permitAll()
+
+                        // 🌟 SỬA ĐỔI QUAN TRỌNG: CHO PHÉP API POST THÊM MÀU SẮC 🌟
+                        .requestMatchers(HttpMethod.POST,
+                                "/api/v1/mausac",
+                                "/api/v1/kichco"
+                        ).permitAll()
+                        // -----------------------------------------------------
 
                         // Cho phép API GET chung của Sản phẩm (GET ALL, GET chi tiết)
                         .requestMatchers(HttpMethod.GET, "/api/v1/sanpham/**").permitAll()
